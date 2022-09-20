@@ -1,12 +1,12 @@
-import React from 'react';
-import './TodoList.css'
+import './TodoList.css';
 
-function TodoList(props) {
+function TodoList({ error, loading, searchedTodos, onError, onLoading, onEmpty, render }) {
   return (
-    <section>
-      <ul>
-        {props.children}
-      </ul>
+    <section className="TodoList-Container">
+      {error && onError()}
+      {loading && onLoading()}
+      {!loading && !searchedTodos.length && onEmpty()}
+      <ul>{searchedTodos.map(render)}</ul>
     </section>
   );
 }
