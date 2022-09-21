@@ -21,7 +21,7 @@ function TodoList({
       {loading && onLoading()}
       {!loading && !totalTodos && onEmpty()}
       {!!totalTodos && !searchedTodos.length && onSearchResults(searchValue)}
-      <ul>{searchedTodos.map(renderFun)}</ul>
+      <ul>{!loading && !error && searchedTodos.map(renderFun)}</ul>
     </section>
   );
 }
